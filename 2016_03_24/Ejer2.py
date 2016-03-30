@@ -1,3 +1,5 @@
+# "Codifica" los caracteres del texto introducido
+# moviendo n veces las letras (solo letras minusculas)
 import string
 
 def encrypt(palabra, nuCod):

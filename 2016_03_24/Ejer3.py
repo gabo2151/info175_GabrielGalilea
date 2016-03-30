@@ -1,3 +1,5 @@
+# Codificacion CENIT <-> POLAR
+#
 #CENIT
 #POLAR
 import string

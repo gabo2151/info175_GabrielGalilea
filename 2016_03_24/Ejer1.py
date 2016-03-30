@@ -1,3 +1,6 @@
+# Devuelve un listado de numeros que son divisibles por
+# 3 y 7 a la vez (Desde 0 hasta el numero ingresado)
+
 def multiplo (num):
 	if (num%3)!=0 or (num%7)!=0:
 		return False
