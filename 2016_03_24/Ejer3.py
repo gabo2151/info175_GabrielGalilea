@@ -31,12 +31,10 @@ def t_polar(t):
 def cenPol(text):
 	result = ""
 	for t in text:
-		if t == "C" or "c" or "E" or "e" or "N" or "n" or "I" or "i" or "T" or "t":
-			print "entro a cenit " + t
+		if t=="C" or t=="c" or t=="E" or t=="e" or t=="N" or t=="n" or t=="I" or t=="i" or t=="T" or t=="t":
 			t = t_cenit(t)
 
-		elif t == "P" or "p" or "O" or "o" or "L" or "l" or "A" or "a" or "R" or "r":
-			print "entro a polar"
+		elif t=="P" or t=="p" or t=="O" or t=="o" or t=="L" or t=="l" or t=="A" or t=="a" or t=="R" or t=="r":
 			t = t_polar(t)
 
 		result += t
