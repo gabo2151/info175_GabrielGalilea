@@ -4,30 +4,17 @@ from Tkinter import *
 import string
 
 # Metamos todo el codigo no mas, no hay tiempo de ver como importar
-def encrypt(palabra, nuCod):
-	palabra = palabra.lower()
-	encoded = ""
-	aBeCeDe = string.ascii_lowercase
-	nABC = len(aBeCeDe)
-
-	for i in range(0, len(palabra)):
-		for j in range(0, nABC+1):
-			if (j<nABC) and (palabra[i]==aBeCeDe[j]):
-				if j+nuCod > nABC:
-					rr = j+nuCod-nABC
-					encoded += aBeCeDe[rr]
-					break
-				else:
-					encoded += aBeCeDe[j+nuCod]
-					break
-
-			elif j == nABC:
-				encoded += palabra[i]
-
-	return encoded
-def mainCrypt(text, num):
-	palabra = encrypt(text, num)
-	return palabra
+# Algo fallaba con el mio... usare el del ppt
+def mainCrypt(word, jump):
+	abcd = string.ascii_lowercase
+	encrypt_word = ""
+	for char in word:
+		if char != " ":
+			index = (abcd.index(char.lower()) + jump) % len(abcd)
+			encrypt_word += abcd[index]
+		else:
+			encrypt_word += char
+	return encrypt_word
 # Metodo mio (lamentable implementacion pero es lo que tengo) de CenitPolar
 def t_cenit(t):
 	t = t.replace("C", "P")
@@ -85,11 +72,10 @@ opc = IntVar()
 numero = StringVar()
 num = IntVar()
 
+# Nunca funciono pero lo dejo por si acaso
 def callback():
 	opc = opcion.get()
 	num = int(numero.get())
-	print opc
-	print num
 
 # Opcion Cesar
 OPT1 = Radiobutton(window, text="Cesar", variable=opcion, value=1, command=callback)
@@ -107,7 +93,10 @@ numSpin.place(x=120, y=420)
 boton = Button(window, text="Haz lo tuyo", command=lambda:accionBoton())
 boton.place(x=150, y=500)
 def accionBoton():
-	print opc
+	# Bueno... no se que pasa pero al menos funciona...
+	# <meme: It's something>
+	opc = opcion.get()
+	num = int(numero.get())
 	if opc == 1:
 		textoDeBox = mainCrypt(texto_BOX.get("1.0",'end-1c'), int(num))
 		texto_BOX.delete(1.0, END)
