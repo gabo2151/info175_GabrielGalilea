@@ -81,40 +81,44 @@ texto_BOX.place(x=10, y=30)
 
 # Variables requeridas
 opcion = IntVar()
-num = StringVar()
+opc = IntVar()
+numero = StringVar()
+num = IntVar()
 
 def callback():
-	print "click"
-	print opcion
+	opc = opcion.get()
+	num = int(numero.get())
+	print opc
 	print num
 
 # Opcion Cesar
-OPT1 = Radiobutton(window, text="Cesar", variable=opcion, value=0, command=callback)
+OPT1 = Radiobutton(window, text="Cesar", variable=opcion, value=1, command=callback)
 OPT1.place(x=10, y=420)
 
 # Opcion Cenit-Polar
-OPT2 = Radiobutton(window, text="Cenit-Polar", variable=opcion, value=1, command=callback)
+OPT2 = Radiobutton(window, text="Cenit-Polar", variable=opcion, value=2, command=callback)
 OPT2.place(x=10, y=450)
 
 # Num de saltos
-numSpin = Spinbox(window, from_=0, to=26, textvariable=num)
-numSpin.place(x=120, y=450)
+numSpin = Spinbox(window, from_=0, to=26, textvariable=numero, command=callback)
+numSpin.place(x=120, y=420)
 
 # Boton
 boton = Button(window, text="Haz lo tuyo", command=lambda:accionBoton())
 boton.place(x=150, y=500)
 def accionBoton():
-	# Arreglado mientras...
-	opcion = 1
-
-	if opcion == 0:
+	print opc
+	if opc == 1:
 		textoDeBox = mainCrypt(texto_BOX.get("1.0",'end-1c'), int(num))
 		texto_BOX.delete(1.0, END)
 		texto_BOX.insert(END, textoDeBox)
-	elif opcion == 1:
+	elif opc == 2:
 		textoDeBox = mainCenPol(texto_BOX.get("1.0",'end-1c'))
 		texto_BOX.delete(1.0, END)
 		texto_BOX.insert(END, textoDeBox)
+	else:
+		texto_BOX.delete(1.0, END)
+		texto_BOX.insert(END, "Elija una opcion")
 # Intento de activar y desactivar el boton
 #if texto_BOX.get("1.0",'end-1c') == "": boton.config(state=DISABLED)
 #else: boton.config(state=NORMAL)
