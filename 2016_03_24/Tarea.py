@@ -3,7 +3,7 @@
 from Tkinter import *
 import string
 
-# Metamos todo el código no más, no hay tiempo de ver como importar
+# Metamos todo el codigo no mas, no hay tiempo de ver como importar
 def encrypt(palabra, nuCod):
 	palabra = palabra.lower()
 	encoded = ""
@@ -64,11 +64,27 @@ def mainCenPol(text):
 
 		result += t
 	return result
-# Resto del código
+# Resto del codigo
 
+# Main window
 window = Tk()
 window.title("GUICrypt")
-
 window.geometry("400x600")
+
+# Texto principal
+texto = Text(window, height=15, width=53)
+texto.place(x=10, y=30)
+
+# Etiqueta 1
+labl1=Label(window, text="Escriba lo que desee encriptar")
+labl1.place(x=10, y=10)
+
+# Boton
+boton = Button(window, text="Haz lo tuyo", command=lambda:accionBoton())
+boton.place(x=150, y=500)
+def accionBoton():
+	print "hola"
+
+
 
 window.mainloop()
