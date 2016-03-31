@@ -42,8 +42,24 @@ class Camion_CLASS(Auto_CLASS):
 		self.rued = rued #Ruedas [int]
 		self.acop = acop #Acoplado [lista]
 
+	def setAcoplado(self, pes, rue, aco):
+		self.acop.append( [pes, rue, aco] )
+
+	def delAcoplado(self):
+		for i in range(self.acop):
+			self.acop.pop()
+
+	def getAcoplado(self):
+		return self.acop
+
+	def getRuedas(self):
+		return self.rued
+
+	def getPeso(self):
+		return self.peso
+
 if __name__ == "__main__":
-	camioneta = Camion_CLASS(0, 0, 9, False, 2.45, 12, [1, 2, 3])
+	camioneta = Camion_CLASS(0, 0, 9, False, 2.45, 12, [])
 	print "Combustible: %s" % camioneta.getBencina()
 	camioneta.loadBencina( float(raw_input("Litros de Bencina a cargar: ")) )
 	print "Combustible: %s" % camioneta.getBencina()
