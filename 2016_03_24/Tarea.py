@@ -84,7 +84,10 @@ boton = Button(window, text="Haz lo tuyo", command=lambda:accionBoton())
 boton.place(x=150, y=500)
 def accionBoton():
 	print texto_BOX.get("1.0",'end-1c')
+	texto_BOX.delete(1.0, END)
 	texto_BOX.insert(END, "funciona?")
-
+# Intento de activar y desactivar el boton
+#if texto_BOX.get("1.0",'end-1c') == "": boton.config(state=DISABLED)
+#else: boton.config(state=NORMAL)
 
 window.mainloop()
