@@ -71,23 +71,53 @@ window = Tk()
 window.title("GUICrypt")
 window.geometry("400x600")
 
-# Texto principal
-texto_BOX = Text(window, height=15, width=53)
-texto_BOX.place(x=10, y=30)
-
 # Etiqueta 1
 labl1=Label(window, text="Escriba lo que desee encriptar")
 labl1.place(x=10, y=10)
+
+# Texto principal
+texto_BOX = Text(window, height=25, width=53)
+texto_BOX.place(x=10, y=30)
+
+# Variables requeridas
+opcion = IntVar()
+num = StringVar()
+
+def callback():
+	print "click"
+	print opcion
+	print num
+
+# Opcion Cesar
+OPT1 = Radiobutton(window, text="Cesar", variable=opcion, value=0, command=callback)
+OPT1.place(x=10, y=420)
+
+# Opcion Cenit-Polar
+OPT2 = Radiobutton(window, text="Cenit-Polar", variable=opcion, value=1, command=callback)
+OPT2.place(x=10, y=450)
+
+# Num de saltos
+numSpin = Spinbox(window, from_=0, to=26, textvariable=num)
+numSpin.place(x=120, y=450)
 
 # Boton
 boton = Button(window, text="Haz lo tuyo", command=lambda:accionBoton())
 boton.place(x=150, y=500)
 def accionBoton():
-	print texto_BOX.get("1.0",'end-1c')
-	texto_BOX.delete(1.0, END)
-	texto_BOX.insert(END, "funciona?")
+	# Arreglado mientras...
+	opcion = 1
+
+	if opcion == 0:
+		textoDeBox = mainCrypt(texto_BOX.get("1.0",'end-1c'), int(num))
+		texto_BOX.delete(1.0, END)
+		texto_BOX.insert(END, textoDeBox)
+	elif opcion == 1:
+		textoDeBox = mainCenPol(texto_BOX.get("1.0",'end-1c'))
+		texto_BOX.delete(1.0, END)
+		texto_BOX.insert(END, textoDeBox)
 # Intento de activar y desactivar el boton
 #if texto_BOX.get("1.0",'end-1c') == "": boton.config(state=DISABLED)
 #else: boton.config(state=NORMAL)
+
 
 window.mainloop()
