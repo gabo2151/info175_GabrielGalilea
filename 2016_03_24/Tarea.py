@@ -72,8 +72,8 @@ window.title("GUICrypt")
 window.geometry("400x600")
 
 # Texto principal
-texto = Text(window, height=15, width=53)
-texto.place(x=10, y=30)
+texto_BOX = Text(window, height=15, width=53)
+texto_BOX.place(x=10, y=30)
 
 # Etiqueta 1
 labl1=Label(window, text="Escriba lo que desee encriptar")
@@ -83,8 +83,8 @@ labl1.place(x=10, y=10)
 boton = Button(window, text="Haz lo tuyo", command=lambda:accionBoton())
 boton.place(x=150, y=500)
 def accionBoton():
-	print "hola"
-
+	print texto_BOX.get("1.0",'end-1c')
+	texto_BOX.insert(END, "funciona?")
 
 
 window.mainloop()
