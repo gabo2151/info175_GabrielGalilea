@@ -39,7 +39,28 @@ class Alumno(Persona):
 		self.prom = prom #Promocion (Anio de ingreso)
 		self.notas = [] #En lista
 
-	def addNota(self, nota):
-		self.notas
+	def addNota(self, lNota): # SE DEBE INGRESAR COMO UNA LISTA
+		nuevaNota = nota(lNota[0], lNota[1], lNota[2], lNota[3])
+		self.notas.append[nuevaNota]
+		print "Nota registrada"
+
+	def getPPR(self):
+		dN = {}
+		for i in range( len(self.notas) ):
+			if dN.has_key( self.notas[i].ramo ):
+				dN[ self.notas[i].ramo ] += self.notas[i].val*self.notas[i].pond
+			else:
+				dN[ self.notas[i].ramo ] = self.notas[i].val*self.notas[i].pond
+		return dN
+
+	def getPGA(self):
+		total = []
+		PGA = self.getPGA()
+		for i in PGA.values():
+			total.append(i)
+		tot = float(sum(total))
+		tot = tot/len(total)
+		return total
 
 if __name__ == "__main__":
+	print "do nothing yet"
