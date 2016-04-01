@@ -21,6 +21,9 @@ class nota:
 	def getPonderacion(self):
 		return self.pond
 
+	def getRamo(self):
+		return self.ramo
+
 	def modValor(self, value, opc):
 		if opc == 0: #Modifica la nota
 			self.val = float(value)
@@ -47,10 +50,10 @@ class Alumno(Persona):
 	def getPPR(self):
 		dN = {}
 		for i in range( len(self.notas) ):
-			if dN.has_key( self.notas[i].ramo ):
-				dN[ self.notas[i].ramo ] += self.notas[i].val*self.notas[i].pond
+			if dN.has_key( self.notas[i].getRamo() ):
+				dN[ self.notas[i].getRamo() ] += self.notas[i].getNota()*self.notas[i].getPonderacion()
 			else:
-				dN[ self.notas[i].ramo ] = self.notas[i].val*self.notas[i].pond
+				dN[ self.notas[i].getRamo() ] = self.notas[i].getNota()*self.notas[i].getPonderacion()
 		return dN
 
 	def getPGA(self):
