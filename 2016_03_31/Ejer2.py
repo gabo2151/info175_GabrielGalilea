@@ -34,10 +34,7 @@ class Auto_CLASS:
 
 class Camion_CLASS(Auto_CLASS):
 	def __init__(self, kmt, oil, rnd, stat, ps, rued, acop):
-		self.kmt = kmt #Kilometraje
-		self.oil = oil #Bencina
-		self.rnd = rnd #Rendimiento
-		self.stat = stat #Encendido (True or False)
+		Auto_CLASS.__init__(self, kmt, oil, rnd, stat)
 		self.peso = ps #Peso [float]
 		self.rued = rued #Ruedas [int]
 		self.acop = acop #Acoplado [lista]
