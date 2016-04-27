@@ -1,3 +1,14 @@
 #!/bin/bash
 #EL PROGRAMA! :D
-zip -r /desitation_folder/file_name.zip /src/folder
+clear
+echo "##################################"
+echo "#                                #"
+echo "#    ZAPS - Zip A Folder Shell   #"
+echo "#                                #"
+echo "##################################"
+
+echo -n "# Carpeta a respaldar: "
+read res_fold
+echo -n "# Carpeta de destino: "
+read des_fold
+zip -r $des_fold/file_name.zip $res_fold
