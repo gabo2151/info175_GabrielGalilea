@@ -3,7 +3,7 @@
 clear
 echo "##################################"
 echo "#                                #"
-echo "#    ZAPS - Zip A Folder Shell   #"
+echo "#    ZAFS - Zip A Folder Shell   #"
 echo "#                                #"
 echo "##################################"
 
