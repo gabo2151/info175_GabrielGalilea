@@ -21,4 +21,16 @@ import sys
 # END TEST!!!!!
 
 con = lite.connect('pos_empresa.db')
+with con:
+	cur = con.cursor()
 
+	# Primera pregunta
+	cur.execute("SELECT COUNT(gross_total) FROM sale WHERE [date] BETWEEN '2013-01-01' AND '2013-12-31'")
+
+	rows = cur.fetchall()
+
+	print "¿Cantidad total de ventas en el año 2013?"
+	for row in rows:
+		print row
+
+	
