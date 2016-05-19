@@ -50,9 +50,17 @@ with con:
 		print "Cliente/NumProductos: " + str(row[1]) + " - " + str(row[0])
 	print
 
-	# Tercera pregunta
+	# Cuarta pregunta
 	print "¿Total de ventas por cliente en el año 2014?"
 	cur.execute("SELECT COUNT(sale.gross_total), entity.names FROM sale JOIN entity WHERE sale.entity_id = entity.id AND date BETWEEN '2014-01-01' AND '2015-01-01' GROUP BY entity.names LIMIT 10;")
 	rows = cur.fetchall()
 	for row in rows:
 		print "Cliente/NumProductos: " + str(row[1]) + " - " + str(row[0])
+	print
+
+	# Quinta pregunta
+	print "¿Cantidad y monto total de ventas por día en noviembre de 2013?"
+	cur.execute("SELECT date, COUNT(gross_total), SUM(gross_total) FROM sale WHERE date BETWEEN '2013-11-01' AND '2013-11-30' GROUP BY date ORDER BY date;")
+	rows = cur.fetchall()
+	for row in rows:
+		print "Fecha: " + str(row[0]) + "\nCantidad/Monto: " + str(row[1]) + " - $" + str(row[2])
