@@ -1,0 +1,76 @@
+/*CREATE TABLE profesor (
+	rut INTEGER,
+	nombre TEXT,
+	correo TEXT,
+	grado TEXT,
+	PRIMARY KEY (rut)
+	);
+
+CREATE TABLE alumno(
+	rut INTEGER,
+	nombre TEXT,
+	correo TEXT,
+	promocion INTEGER,
+	genero TEXT,
+	PRIMARY KEY (rut)
+	);
+
+INSERT INTO profesor (rut, nombre, correo, grado) VALUES (9123456, "Don Juansho", "don.juansho@hoshmail.com", "Doctor");
+INSERT INTO profesor (rut, nombre, correo, grado) VALUES (17654567, "JaJaJaime Rios", "risa.rios@hoshmail.com", "MD");
+INSERT INTO profesor (rut, nombre, correo, grado) VALUES (11222333, "John Cena", "jc.tatarara@hoshmail.com", "Fighter");
+INSERT INTO profesor (rut, nombre, correo, grado) VALUES (12123123, "Alan Brito", "ab@hoshmail.com", "Profe");
+
+INSERT INTO alumno (rut, nombre, correo, promocion, genero) VALUES (22080706, "Phyllis S. McDowell", "pm@mail.com", 2010, "M");
+INSERT INTO alumno (rut, nombre, correo, promocion, genero) VALUES (12291047, "Stacey M. Gooding", "sg@mail.com", 2011, "F");
+INSERT INTO alumno (rut, nombre, correo, promocion, genero) VALUES (12754569, "Andrew W. Wingard", "aw@mail.com", 2011, "M");
+INSERT INTO alumno (rut, nombre, correo, promocion, genero) VALUES (16510123, "Victor N. Woods", "vw@mail.com", 2014, "M");
+INSERT INTO alumno (rut, nombre, correo, promocion, genero) VALUES (18215158, "Cristina F. Snyder", "cs@mail.com", 2015, "F");
+INSERT INTO alumno (rut, nombre, correo, promocion, genero) VALUES (10896142, "Kenneth D. Long", "kdl@mail.com", 2010, "M");
+INSERT INTO alumno (rut, nombre, correo, promocion, genero) VALUES (11940612, "Jake G. Cohrs", "jgc@mail.com", 2014, "M");
+INSERT INTO alumno (rut, nombre, correo, promocion, genero) VALUES (9252602, "Virginia S. Stein", "vss@mail.com", 2012, "F");
+INSERT INTO alumno (rut, nombre, correo, promocion, genero) VALUES (7011803, "Carol C. Cabe", "ccc@mail.com", 2011, "F");
+INSERT INTO alumno (rut, nombre, correo, promocion, genero) VALUES (13126929, "Dennis G. West", "dgw@mail.com", 2012, "M");
+
+CREATE TABLE asignatura (
+	codigo TEXT,
+	nombre TEXT NOT NULL,
+	area TEXT,
+	profesor_rut INTEGER,
+	PRIMARY KEY (codigo),
+	FOREIGN KEY (profesor_rut) REFERENCES profesor(rut)
+	);
+
+INSERT INTO asignatura (codigo, nombre, area, profesor_rut) VALUES ("BAIN032", "Quimica general", "Bachillerato", 9123456);
+INSERT INTO asignatura (codigo, nombre, area, profesor_rut) VALUES ("BAIN034", "Geometría", "Bachillerato", 11222333);
+INSERT INTO asignatura (codigo, nombre, area, profesor_rut) VALUES ("ICIV057", "Intro. Ing. Industrial", "Industrial", 9123456);
+INSERT INTO asignatura (codigo, nombre, area, profesor_rut) VALUES ("INFO065", "Intro. Programacion", "Informática", 12123123);
+INSERT INTO asignatura (codigo, nombre, area, profesor_rut) VALUES ("ICIV083", "Teoría organizacional", "Industrial", 9123456);
+INSERT INTO asignatura (codigo, nombre, area, profesor_rut) VALUES ("INFO068", "Taller de TIC", "Informática", 17654567);
+
+CREATE TABLE inscripcion (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	alumno_rut INTEGER NOT NULL,
+	asignatura_codigo TEXT NOT NULL,
+	year INTEGER NOT NULL,
+	semestre INTEGER NOT NULL,
+	estado TEXT,
+	promedio REAL,
+	FOREIGN KEY (alumno_rut) REFERENCES alumno(rut),
+	FOREIGN KEY (asignatura_codigo) REFERENCES asignatura(codigo)
+	);
+*/
+
+INSERT INTO inscripcion (alumno_rut, asignatura_codigo, year, semestre) VALUES (22080706, 'BAIN032', 2010, 1);
+INSERT INTO inscripcion (alumno_rut, asignatura_codigo, year, semestre) VALUES (22080706, 'BAIN034', 2010, 1);
+INSERT INTO inscripcion (alumno_rut, asignatura_codigo, year, semestre) VALUES (22080706, 'INFO065', 2010, 2);
+INSERT INTO inscripcion (alumno_rut, asignatura_codigo, year, semestre) VALUES (22080706, 'INFO068', 2010, 2);
+INSERT INTO inscripcion (alumno_rut, asignatura_codigo, year, semestre) VALUES (22080706, 'ICIV057', 2011, 1);
+INSERT INTO inscripcion (alumno_rut, asignatura_codigo, year, semestre) VALUES (22080706, 'ICIV083', 2011, 1);
+INSERT INTO inscripcion (alumno_rut, asignatura_codigo, year, semestre) VALUES (12291047, 'BAIN032', 2011, 1);
+INSERT INTO inscripcion (alumno_rut, asignatura_codigo, year, semestre) VALUES (12291047, 'BAIN034', 2011, 1);
+INSERT INTO inscripcion (alumno_rut, asignatura_codigo, year, semestre) VALUES (12291047, 'INFO065', 2011, 2);
+INSERT INTO inscripcion (alumno_rut, asignatura_codigo, year, semestre) VALUES (12291047, 'INFO068', 2011, 2);
+INSERT INTO inscripcion (alumno_rut, asignatura_codigo, year, semestre) VALUES (12754569, 'BAIN032', 2011, 1);
+INSERT INTO inscripcion (alumno_rut, asignatura_codigo, year, semestre) VALUES (12754569, 'BAIN034', 2011, 1);
+INSERT INTO inscripcion (alumno_rut, asignatura_codigo, year, semestre) VALUES (12754569, 'BAIN032', 2011, 2);
+INSERT INTO inscripcion (alumno_rut, asignatura_codigo, year, semestre) VALUES (12754569, 'BAIN034', 2011, 2);

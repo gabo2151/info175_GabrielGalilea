@@ -1,0 +1,10 @@
+/*
+SELECT * FROM entity;
+
+SELECT * FROM entity WHERE type = 1;
+*/
+SELECT * FROM entity
+	WHERE type = 1 AND relationship = 1;
+	
+SELECT * FROM entity
+	WHERE [group] = "amigos" OR [group] = "ABC1";
