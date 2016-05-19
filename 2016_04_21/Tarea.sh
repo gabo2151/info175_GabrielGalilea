@@ -1,4 +1,4 @@
-#!/bin/sh
+#! /bin/sh
 #EL PROGRAMA! :D
 
 # Formato de fecha
@@ -36,7 +36,7 @@ execute_program(){
 	echo -n "Carpeta de destino: "
 	read des_fold
 	zip -r $des_fold/"$fecha_hoy".zip $res_fold
-	menu;
+	menu
 }
 
 # Ejecuta menu
