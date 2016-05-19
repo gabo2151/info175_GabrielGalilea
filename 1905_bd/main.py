@@ -30,7 +30,8 @@ with con:
 
 	rows = cur.fetchall()
 	for row in rows:
-		print row
+		print "Ventas: "+str(row[0])
+	print
 
 	# Segunda pregunta
 	print "¿Precio promedio de venta por producto?"
@@ -38,7 +39,20 @@ with con:
 
 	rows = cur.fetchall()
 	for row in rows:
-		print row
+		print "Producto: " + str(row[1]) + "\nPrecio: $" + str(row[0])
+	print
 
 	# Tercera pregunta
-	
+	print "¿Total de ventas (gross_total) por cliente"
+	cur.execute("SELECT COUNT(sale.gross_total), entity.names FROM sale JOIN entity WHERE sale.entity_id = entity.id GROUP BY entity.names LIMIT 10;")
+	rows = cur.fetchall()
+	for row in rows:
+		print "Cliente/NumProductos: " + str(row[1]) + " - " + str(row[0])
+	print
+
+	# Tercera pregunta
+	print "¿Total de ventas por cliente en el año 2014?"
+	cur.execute("SELECT COUNT(sale.gross_total), entity.names FROM sale JOIN entity WHERE sale.entity_id = entity.id AND date BETWEEN '2014-01-01' AND '2015-01-01' GROUP BY entity.names LIMIT 10;")
+	rows = cur.fetchall()
+	for row in rows:
+		print "Cliente/NumProductos: " + str(row[1]) + " - " + str(row[0])
