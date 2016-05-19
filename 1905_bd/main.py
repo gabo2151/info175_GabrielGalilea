@@ -64,3 +64,11 @@ with con:
 	rows = cur.fetchall()
 	for row in rows:
 		print "Fecha: " + str(row[0]) + "\nCantidad/Monto: " + str(row[1]) + " - $" + str(row[2])
+	print
+
+	# Sexta pregunta
+	print " ¿Cantidad y montos totales agrupados por producto en orden descendente según cantidad?"
+	cur.execute("SELECT product.name, SUM(sale_product.quantity), SUM(sale_product.gross_total) FROM sale_product JOIN product WHERE sale_product.product_id = product.id GROUP BY product.name ORDER BY SUM(sale_product.quantity) DESC LIMIT 10;")
+	rows = cur.fetchall()
+	for row in rows:
+		print "Producto: " + row[0] + "\nCantidad/Monto: " + str(row[1]) + " - $" + str(row[2])
